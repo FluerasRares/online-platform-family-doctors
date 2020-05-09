@@ -1,0 +1,15 @@
+{
+  "name": "authenticate_medic",
+  "version": "0.1.0",
+  "description": "authenticate medic service",
+  "scripts": {
+    "preapi": "cp ./authenticate_medic.json ../../../../microfabrik/one/setup/",
+    "api": "cd ../../../../microfabrik/one/; ./one api authenticate_medic",
+    "deploy": "../../../../microfabrik/one/one publish authenticate_medic -d ."
+  },
+  "author": "microfabrik",
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {}
+}

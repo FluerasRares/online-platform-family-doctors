@@ -1,0 +1,10 @@
+{
+  "user": {
+    "baseURL": "https://6nim0fkf7a.execute-api.us-east-1.amazonaws.com/dev/",
+    "authenticate": {
+      "method": "POST",
+      "url": "/authenticate",
+      "timeout": 5000
+    }
+  }
+}

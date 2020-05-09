@@ -1,0 +1,8 @@
+{
+  "lambda": {
+    "name": "authenticate_medic"
+  },
+  "gateway": {
+    "POST": "authenticate"
+  }
+}
