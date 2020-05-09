@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import styles from './styles';
 import { selectCurrentUser } from '../User/selectors';
-import Chat from '../Chat';
+import LeftMenu from '../LeftMenu';
 
 const MyProfile = ({ classes, currentUser: { cellNumber = '123-456-7890', officeNumber ='123-456-7890', email='test@test.test', judet = 'Ilfov', specialitati = [], nume = 'Doe', prenume = 'John' } = {}, history }) => {
   const [fullName] = React.useState(`${prenume || ''} ${nume || ''}`);
@@ -16,9 +16,9 @@ const MyProfile = ({ classes, currentUser: { cellNumber = '123-456-7890', office
   }
   return (
     <Fragment>
-      <Grid container spacing={2} style={{ marginTop: '4vh' }}>
-        <Grid item xs={1}></Grid>
-        <Grid item xs={10}>
+      <Grid container spacing={0}>
+        <Grid item xs={3}><LeftMenu/></Grid>
+        <Grid item xs={9}>
           <Card>
             <CardHeader title="Profilul Meu" style={{ background: '#f1f1f1'}}/>
             <CardContent>
@@ -51,11 +51,9 @@ const MyProfile = ({ classes, currentUser: { cellNumber = '123-456-7890', office
             </CardContent>
             <hr />
             <CardActions>
-              <span style={{ flex: 1 }}></span>
               <Button onClick={e => editProfile()}>Edit Profile</Button>
+              <span style={{ flex: 1 }}></span>
             </CardActions>
-            <Chat/>
-
           </Card>
         </Grid>
       </Grid>

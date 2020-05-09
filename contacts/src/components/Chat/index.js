@@ -12,7 +12,7 @@ const Chat = ({ classes }) => {
   }
   return (
     <div>
-      <Widget
+      <Widget style={{ height: 100 }}
         handleNewUserMessage={handleNewUserMessage}
         // profileAvatar={avatar}
         title="Chat"
