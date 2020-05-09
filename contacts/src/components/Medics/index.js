@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Typography, Card, CardHeader, CardContent, CardActions, Button, TextField, Grid } from '@material-ui/core';
+import { Card, CardHeader, CardContent, List, ListItem, ListItemText, ListItemAvatar, Avatar, Grid } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -8,7 +8,7 @@ import styles from './styles';
 import LeftMenu from '../LeftMenu';
 import Chat from '../Chat';
 
-const Medics = ({ classes, history }) => {
+const Medics = ({ classes, history, medics =[{ id: 1, name: 'Ion Ionescu', specialitate: 'chirurg' }, { id: 2, name: 'Mihai Vasilescu', specialitate: 'ortoped' }] }) => {
   return <Fragment>
     <Grid container spacing={1}>
       <Grid item xs={2}><LeftMenu /></Grid>
@@ -16,7 +16,17 @@ const Medics = ({ classes, history }) => {
         <Card>
           <CardHeader title="Medici" style={{ background: '#f1f1f1' }} />
           <CardContent>
-          todo
+            <List component="nav">
+              {medics
+                .map(({ id, name, specialitate }, index) =>
+                  <ListItem button key={index}>
+                    <ListItemAvatar>
+                      <Avatar alt={name} src="/static/images/avatar/1.jpg" />
+                    </ListItemAvatar>
+                    <ListItemText primary={name} secondary={specialitate} style={{ display: 'inline'}}/>
+                  </ListItem>
+              )}
+            </List>
           </CardContent>
         </Card>
       </Grid>
