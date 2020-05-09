@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Card, CardHeader, CardContent, List, ListItem, ListItemText, ListItemAvatar, Avatar, Grid, ListItemSecondaryAction, IconButton } from '@material-ui/core';
+import { Card, CardHeader, CardContent, List, ListItem, ListItemText, ListItemAvatar, Avatar, Grid, ListItemSecondaryAction, IconButton, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -12,6 +12,19 @@ import ChatIcon from '@material-ui/icons/Chat';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 const Medics = ({ medics = [] }) => {
+  const [open, setOpen] = React.useState(false);
+  const [chatWith, setChatWith] = React.useState('');
+
+  const handleClickOpen = name => {
+    console.log(name)
+    setChatWith(name);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
   return <Fragment>
     <Grid container spacing={1}>
       <Grid item xs={2}><LeftMenu /></Grid>
@@ -20,7 +33,7 @@ const Medics = ({ medics = [] }) => {
           <CardHeader title="Medici" style={{ background: '#f1f1f1' }} />
           <CardContent>
 
-            <BootstrapTable data={medics}
+            {/* <BootstrapTable data={medics}
               border={false}
               height='120'
               scrollTop={'Bottom'}
@@ -29,29 +42,50 @@ const Medics = ({ medics = [] }) => {
               <TableHeaderColumn dataField='id'
                 isKey={true}>ID</TableHeaderColumn>
               <TableHeaderColumn dataField='name'>Nume / Prenume</TableHeaderColumn>
-            </BootstrapTable>
+            </BootstrapTable> */}
 
-            {/* <List component="nav">
+            <List component="nav">
               {medics
                 .map(({ id, name, departament: specialitate }, index) =>
                   <ListItem button key={index}>
                     <ListItemAvatar>
-                      <Avatar alt={name} src="/static/images/avatar/1.jpg" />
+                      <Avatar alt={name} src="../../assests/1.jpg" />
                     </ListItemAvatar>
                     <ListItemText primary={name} secondary={specialitate} style={{ display: 'inline'}}/>
                     <ListItemSecondaryAction>
                       <IconButton edge="end" aria-label="chat">
-                        <ChatIcon/>
+                        <ChatIcon onClick={e => handleClickOpen(name)}/>
                       </IconButton>
                     </ListItemSecondaryAction>                    
                   </ListItem>
               )}
-            </List> */}
+            </List>
           </CardContent>
         </Card>
       </Grid>
     </Grid>
-    {/* <div id="chatlioWidgetPlaceholder" style={{height: 400, width: 400 }}></div>       */}
+
+    <div>
+      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Open chat
+      </Button> */}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{`Start chat with ${chatWith}`}</DialogTitle>
+        <DialogContent>
+          <div id="chatlioWidgetPlaceholder" style={{ width: 450, height: 300 }}></div>      
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>      
   </Fragment>
 }
 
