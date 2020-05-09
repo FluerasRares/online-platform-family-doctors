@@ -61,7 +61,7 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
                     <TextField error={passwordError} helperText={passwordHelperText} fullWidth label="Parola" type="password" value={password} className={classes.input} onChange={e => setPassword(e.target.value)} autoComplete="new-password" />
                   </Grid>
                   <Grid item xs={12}>
-                    <TextField error={cipError} helperText={cipHelperText} fullWidth label="Cod Identificare Personala" value={cip} className={classes.input} onChange={e => setCip(e.target.value)} />
+                    <TextField error={cipError} helperText={cipHelperText} fullWidth label="Cod de Identificare Personala in Registrul Medicilor" value={cip} className={classes.input} onChange={e => setCip(e.target.value)} />
                   </Grid>
                   <Grid item xs={12}>&nbsp;</Grid>
                   <Grid item xs={12}>

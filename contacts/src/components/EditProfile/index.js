@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Typography, Card, CardHeader, CardContent, CardActions, Button } from '@material-ui/core';
+import { Typography, Card, CardHeader, CardContent, CardActions, Button, TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
@@ -9,8 +9,14 @@ import styles from './styles';
 import { selectCurrentUser } from '../User/selectors';
 
 const MyProfile = ({ classes, currentUser = {}, history }) => {
-  const editProfile = () => {
-    history.push('editProfile');
+  const [cellNumber, setCellNumber] = React.useState('');
+  const [officeNumber, setOfficeNumber] = React.useState('');
+  const saveProfile = () => {
+    alert('not yet...');
+    // history.push('editProfile');
+  }
+  const back = () => {
+    history.push('/myprofile');
   }
   return (
     <Fragment>
@@ -29,18 +35,27 @@ const MyProfile = ({ classes, currentUser = {}, history }) => {
                 </Grid>
                 <Grid container item xs={12}>
                   <Grid item xs={6}>
+                    <TextField fullWidth label="Telefon mobil" value={cellNumber} className={classes.input} onChange={e => setCellNumber(e.target.value)} />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <TextField fullWidth label="Telefon birou" value={officeNumber} className={classes.input} onChange={e => setOfficeNumber(e.target.value)} />
+                  </Grid>
+                  {/* <Grid item xs={6}>
                     <Typography variant="h5">Locatie</Typography>
                   </Grid>
                   <Grid item xs={6}>
                     <Typography variant="h5">{currentUser.judet}</Typography>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
+
+
               </Grid>
             </CardContent>
             <hr />
             <CardActions>
-              <span style={{ flex: 1 }}></span>
-              <Button onClick={e => editProfile()}>Edit Profile</Button>
+              <Button onClick={e => back()}>cancel</Button>
+              <span style={{flex:1}}></span>
+              <Button onClick={e => saveProfile()}>Save Profile</Button>
             </CardActions>
           </Card>
         </Grid>
