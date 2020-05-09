@@ -8,7 +8,7 @@ const Lobby = ({
                    handleSubmit
                }) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={"video-form"} onSubmit={handleSubmit}>
             <h2>Enter a room</h2>
             <div>
                 <label htmlFor={"name"}>Name: </label>
@@ -31,7 +31,7 @@ const Lobby = ({
                     required
                 />
             </div>
-            <button type={"submit"}>Submit</button>
+            <button className={"video-button"} type={"submit"}>Submit</button>
         </form>
     )
 }

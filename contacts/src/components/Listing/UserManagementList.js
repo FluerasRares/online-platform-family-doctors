@@ -56,7 +56,7 @@ class UserManagementList extends Component {
         }
 
         return (
-            <div className={"list-hostess data-listing"}>
+            <div>
                 <span> Lista de medici inregistrati </span>
 
                 <BootstrapTable data={this.state.users}
@@ -67,7 +67,12 @@ class UserManagementList extends Component {
                                 search>
                     <TableHeaderColumn dataField='id'
                                        isKey={true}>ID</TableHeaderColumn>
+                    <TableHeaderColumn dataField='cmi'>CMI</TableHeaderColumn>
                     <TableHeaderColumn dataField='name'>Nume / Prenume</TableHeaderColumn>
+                    <TableHeaderColumn dataField='address'>Adresa</TableHeaderColumn>
+                    <TableHeaderColumn dataField='phone'>Telefon</TableHeaderColumn>
+                    <TableHeaderColumn dataField='email'>Email</TableHeaderColumn>
+                    <TableHeaderColumn dataField='department'>Departament</TableHeaderColumn>
                     <TableHeaderColumn dataField='actions'
                                        dataFormat={this.actionFormatter}>Actiuni</TableHeaderColumn>
                 </BootstrapTable>

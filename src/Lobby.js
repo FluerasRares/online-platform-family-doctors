@@ -31,7 +31,7 @@ const Lobby = ({
                     required
                 />
             </div>
-            <button type={"submit"}>Submit</button>
+            <button className={"video-button"} type={"submit"}>Submit</button>
         </form>
     )
 }
