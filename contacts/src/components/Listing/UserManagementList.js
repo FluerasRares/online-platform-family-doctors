@@ -1,9 +1,12 @@
 import React, {Component} from 'react'
-
-import PropTypes from 'prop-types'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
+import {Link, withRouter} from "react-router-dom";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {withStyles} from "@material-ui/core/styles";
+import styles from "../LeftMenu/styles";
 
-export default class UserManagementList extends Component {
+class UserManagementList extends Component {
 
     constructor(props) {
 
@@ -20,13 +23,22 @@ export default class UserManagementList extends Component {
         }
     }
 
+    openVideo = (username) => {
+        this.props.history.push('/test-video/' + username)
+    }
+
     // user = row
     actionFormatter = (cell, user) => {
 
+        // we should check if user is active or not (for the moment we presume all are active)
         return (
             <div>
                 <React.Fragment>
-
+                    <Link to={"#"}
+                          onClick={() => this.openVideo(user.name)}
+                    >
+                        Video
+                    </Link>
                 </React.Fragment>
             </div>
         )
@@ -51,16 +63,30 @@ export default class UserManagementList extends Component {
                                 border={false}
                                 height='120'
                                 scrollTop={'Bottom'}
+                                pagination
                                 search>
                     <TableHeaderColumn dataField='id'
                                        isKey={true}>ID</TableHeaderColumn>
                     <TableHeaderColumn dataField='name'>Nume / Prenume</TableHeaderColumn>
+                    <TableHeaderColumn dataField='actions'
+                                       dataFormat={this.actionFormatter}>Actiuni</TableHeaderColumn>
                 </BootstrapTable>
             </div>
         )
     }
 }
 
-UserManagementList.propTypes = {
-    users: PropTypes.array,
-}
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {};
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withStyles(styles, {withTheme: true}),
+    withRouter,
+)(UserManagementList);
+
+// UserManagementList.propTypes = {
+// users: PropTypes.array,
+// showVideo: PropTypes.func.isRequired,
+// }

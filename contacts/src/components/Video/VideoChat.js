@@ -2,9 +2,11 @@ import React, {useCallback, useState} from 'react';
 import Lobby from "./Lobby";
 import Room from "./Room";
 
-const VideoChat = () => {
+const VideoChat = (props) => {
 
-    const [username, setUsername] = useState('');
+    const username = props.match.params.username;
+
+    const [setUsername] = useState('');
     const [roomName, setRoomName] = useState('');
     const [token, setToken] = useState(null);
 
