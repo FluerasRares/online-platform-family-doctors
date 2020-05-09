@@ -20,7 +20,7 @@ const Medics = ({ medics = [] }) => {
           <CardHeader title="Medici" style={{ background: '#f1f1f1' }} />
           <CardContent>
 
-            {/* <BootstrapTable data={medics}
+            <BootstrapTable data={medics}
               border={false}
               height='120'
               scrollTop={'Bottom'}
@@ -29,9 +29,9 @@ const Medics = ({ medics = [] }) => {
               <TableHeaderColumn dataField='id'
                 isKey={true}>ID</TableHeaderColumn>
               <TableHeaderColumn dataField='name'>Nume / Prenume</TableHeaderColumn>
-            </BootstrapTable> */}
+            </BootstrapTable>
 
-            <List component="nav">
+            {/* <List component="nav">
               {medics
                 .map(({ id, name, departament: specialitate }, index) =>
                   <ListItem button key={index}>
@@ -46,7 +46,7 @@ const Medics = ({ medics = [] }) => {
                     </ListItemSecondaryAction>                    
                   </ListItem>
               )}
-            </List>
+            </List> */}
           </CardContent>
         </Card>
       </Grid>
