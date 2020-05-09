@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import styles from './styles';
 import { signup } from './actions';
 import { selectSignupError } from '../Errors/selectors'
-import { clearError } from '../Errors/actions'
+import { clearError } from '../Errors/actions';
 
 const SignUp = ({ classes, signup, history, backendError, clearError }) => {
   const [username, setUsername] = React.useState('test');
@@ -45,7 +45,7 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
   }, [backendError])
 
   return (
-    <Fragment>
+    <div>
       <Grid container spacing={2} style={{ marginTop: '4vh' }}>
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
@@ -79,7 +79,7 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
         <Grid item xs={1}></Grid>
         <Grid item xs={12}></Grid>
       </Grid>
-    </Fragment>
+    </div>
   )
 }
 

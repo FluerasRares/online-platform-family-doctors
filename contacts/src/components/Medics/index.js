@@ -51,7 +51,7 @@ const Medics = ({ medics = [] }) => {
         </Card>
       </Grid>
     </Grid>
-    <Chat/>
+    {/* <div id="chatlioWidgetPlaceholder" style={{height: 400, width: 400 }}></div>       */}
   </Fragment>
 }
 

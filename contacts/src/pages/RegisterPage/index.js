@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import styles from './styles';
 import { Card, CardHeader, CardContent, TextField, Button, Typography } from '@material-ui/core';
 
-const StartPage = ({ classes, backendError='' }) => {
+const RegisterPage = ({ classes, backendError='' }) => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [usernameError, setUsernameError] = React.useState(false);
@@ -49,6 +49,9 @@ const StartPage = ({ classes, backendError='' }) => {
                 <Grid item xs={12}>
                   <TextField error={passwordError} helperText={passwordHelperText} fullWidth label="Password" type="password" value={password} className={classes.input} onChange={e => setPassword(e.target.value)} autoComplete="new-password" />
                 </Grid>
+                <Grid item xs={12}>
+                  <TextField error={cipError} helperText={cipHelperText} fullWidth label="Username" value={cip} className={classes.input} onChange={e => setCIP(e.target.value)} />
+                </Grid>
                 <Grid item xs={12}>&nbsp;</Grid>
                 <Grid item xs={12}>
                   <Button variant="contained" className={classes.signinBtn} fullWidth onClick={validateAndSignin}>Sign in</Button>
@@ -70,4 +73,4 @@ const StartPage = ({ classes, backendError='' }) => {
 
 export default compose(
   withStyles(styles, { withTheme: true }),
-)(StartPage);
+)(RegisterPage);
