@@ -9,8 +9,12 @@ import styles from './styles';
 import { selectCurrentUser } from '../User/selectors';
 
 const MyProfile = ({ classes, currentUser = {}, history }) => {
+  const [nume] = React.useState(`${currentUser.prenume || 'John'} ${currentUser.nume || 'Doe'}`);
   const [cellNumber, setCellNumber] = React.useState('');
   const [officeNumber, setOfficeNumber] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [localitate, setLocalitate] = React.useState('');
+  const [judet, setJudet] = React.useState(currentUser.judet);
   const saveProfile = () => {
     alert('not yet...');
     // history.push('editProfile');
@@ -28,10 +32,24 @@ const MyProfile = ({ classes, currentUser = {}, history }) => {
             <CardContent>
               <Grid container spacing={1}>
                 <Grid item xs={12}>
-                  <Typography variant="h3"></Typography>
+                  <TextField disabled fullWidth label="Nume" value={nume} className={classes.input} />
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography variant="h5">{currentUser.prenume} {currentUser.nume}</Typography>
+                  {(currentUser.specialitati || [{ nume: 'Medicina de familie'}])
+                    .map(({ nume = '', drept_de_practica = '', grad }, index) =>
+                      <Grid item xs={12} key={index}>
+                        <TextField disabled fullWidth value={nume} className={classes.input} />
+                      </Grid>
+                    )}
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField fullWidth label="Localitate" value={localitate} className={classes.input} onChange={e => setLocalitate(e.target.value)} />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField fullWidth label="Judet" value={judet} className={classes.input} onChange={e => setJudet(e.target.value)} />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField fullWidth label="Email" value={email} className={classes.input} onChange={e => setEmail(e.target.value)} />
                 </Grid>
                 <Grid container item xs={12}>
                   <Grid item xs={6}>
@@ -40,12 +58,6 @@ const MyProfile = ({ classes, currentUser = {}, history }) => {
                   <Grid item xs={6}>
                     <TextField fullWidth label="Telefon birou" value={officeNumber} className={classes.input} onChange={e => setOfficeNumber(e.target.value)} />
                   </Grid>
-                  {/* <Grid item xs={6}>
-                    <Typography variant="h5">Locatie</Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography variant="h5">{currentUser.judet}</Typography>
-                  </Grid> */}
                 </Grid>
 
 

@@ -19,7 +19,7 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordHelperText, setPasswordHelperText] = React.useState('');
   const [cipError, setCipError] = React.useState(false);
-  const [cipHelperText, setCipHelperText] = React.useState('e.g. 2791488999');
+  const [cipHelperText, setCipHelperText] = React.useState('CUID (10 cifre)');
   
   const validateAndSignin = () => {
     const isUsernameValid = !!username.trim();
@@ -39,9 +39,9 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
   }
 
   React.useEffect(() => {
-    const hasBackendUsernameError = backendError.indexOf('username') >= 0;
-    setUsernameError(hasBackendUsernameError);
-    hasBackendUsernameError && setUsernameHelperText(backendError);
+    const hasBackendCIPError = backendError.indexOf('CIP') >= 0;
+    setCipError(hasBackendCIPError);
+    hasBackendCIPError && setCipHelperText(backendError);
   }, [backendError])
 
   return (

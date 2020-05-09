@@ -2574,6 +2574,10 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+
 clean-css@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
@@ -3152,6 +3156,10 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
+date-fns@^2.11.1:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.13.0.tgz#d7b8a0a2d392e8d88a8024d0a46b980bbfdbd708"
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -3489,7 +3497,7 @@ enhanced-resolve@^4.1.0:
     memory-fs "^0.5.0"
     tapable "^1.0.0"
 
-entities@^1.1.1:
+entities@^1.1.1, entities@~1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
 
@@ -5773,6 +5781,12 @@ lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
 
+linkify-it@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-2.2.0.tgz#e3b54697e78bf915c70a38acd78fd09e0058b1cf"
+  dependencies:
+    uc.micro "^1.0.1"
+
 load-json-file@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-2.0.0.tgz#7947e42149af80d696cbf797bcaabcfe1fe29ca8"
@@ -5932,6 +5946,28 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+markdown-it-link-attributes@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-link-attributes/-/markdown-it-link-attributes-2.1.0.tgz#32a74c94f7c5cdfd08868d2bee29c6fa70a08324"
+
+markdown-it-sanitizer@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/markdown-it-sanitizer/-/markdown-it-sanitizer-0.4.3.tgz#2ba34e9fe16e6372ce7192fb50b37d9dfbff0102"
+
+markdown-it-sup@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-sup/-/markdown-it-sup-1.0.0.tgz#cb9c9ff91a5255ac08f3fd3d63286e15df0a1fc3"
+
+markdown-it@^8.4.1:
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
+  dependencies:
+    argparse "^1.0.7"
+    entities "~1.1.1"
+    linkify-it "^2.0.0"
+    mdurl "^1.0.1"
+    uc.micro "^1.0.5"
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -5943,6 +5979,10 @@ md5.js@^1.3.4:
 mdn-data@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
+
+mdurl@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -7649,6 +7689,19 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-chat-widget@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-chat-widget/-/react-chat-widget-3.0.1.tgz#7c1d6e1ae3285205bf59ddcae72fd535278ad64e"
+  dependencies:
+    classnames "^2.2.6"
+    date-fns "^2.11.1"
+    markdown-it "^8.4.1"
+    markdown-it-link-attributes "^2.1.0"
+    markdown-it-sanitizer "^0.4.3"
+    markdown-it-sup "^1.0.0"
+    react-redux "^7.2.0"
+    redux "^4.0.5"
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
@@ -9115,6 +9168,10 @@ typescript-tuple@^2.2.1:
   resolved "https://registry.yarnpkg.com/typescript-tuple/-/typescript-tuple-2.2.1.tgz#7d9813fb4b355f69ac55032e0363e8bb0f04dad2"
   dependencies:
     typescript-compare "^0.0.2"
+
+uc.micro@^1.0.1, uc.micro@^1.0.5:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
