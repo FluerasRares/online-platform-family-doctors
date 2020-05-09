@@ -11,7 +11,7 @@ const LeftMenu = ({ classes, history }) => {
     <div style={{ width: '100%', height: '100vh', background: '#cacaca' }}>
       <MenuItem onClick={e => history.push('/myprofile')}>Profilul Meu</MenuItem>
       <MenuItem onClick={e => history.push('/directory')}>Medici</MenuItem>
-      <MenuItem>Video Conf</MenuItem>
+      <MenuItem onClick={e => history.push('/test-video/Sandra')}>Video Conf</MenuItem>
     </div>
   )
 }

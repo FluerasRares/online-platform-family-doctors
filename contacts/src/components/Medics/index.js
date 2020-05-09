@@ -22,6 +22,7 @@ const Medics = ({ medics = [] }) => {
               border={false}
               height='120'
               scrollTop={'Bottom'}
+              pagination
               search>
               <TableHeaderColumn dataField='id'
                 isKey={true}>ID</TableHeaderColumn>
