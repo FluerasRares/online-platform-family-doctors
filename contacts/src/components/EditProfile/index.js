@@ -7,8 +7,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import styles from './styles';
 import { selectCurrentUser } from '../User/selectors';
+import LeftMenu from '../LeftMenu';
 
-const MyProfile = ({ classes, currentUser = {}, history }) => {
+const EditProfile = ({ classes, currentUser = {}, history }) => {
   const [nume] = React.useState(`${currentUser.prenume || 'John'} ${currentUser.nume || 'Doe'}`);
   const [cellNumber, setCellNumber] = React.useState('');
   const [officeNumber, setOfficeNumber] = React.useState('');
@@ -24,8 +25,8 @@ const MyProfile = ({ classes, currentUser = {}, history }) => {
   }
   return (
     <Fragment>
-      <Grid container spacing={2} style={{ marginTop: '4vh' }}>
-        <Grid item xs={1}></Grid>
+      <Grid container spacing={1}>
+        <Grid item xs={2}><LeftMenu /></Grid>
         <Grid item xs={10}>
           <Card>
             <CardHeader title="Profilul Meu" style={{ background: '#f1f1f1'}}/>
@@ -88,4 +89,4 @@ export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   withStyles(styles, { withTheme: true }),
   withRouter,
-)(MyProfile);
+)(EditProfile);

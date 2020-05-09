@@ -10,9 +10,9 @@ import Chat from '../Chat';
 
 const Medics = ({ classes, history }) => {
   return <Fragment>
-    <Grid container spacing={0}>
-      <Grid item xs={3}><LeftMenu /></Grid>
-      <Grid item xs={9}>
+    <Grid container spacing={1}>
+      <Grid item xs={2}><LeftMenu /></Grid>
+      <Grid item xs={10}>
         <Card>
           <CardHeader title="Medici" style={{ background: '#f1f1f1' }} />
           <CardContent>

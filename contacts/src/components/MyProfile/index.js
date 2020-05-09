@@ -16,9 +16,9 @@ const MyProfile = ({ classes, currentUser: { cellNumber = '123-456-7890', office
   }
   return (
     <Fragment>
-      <Grid container spacing={0}>
-        <Grid item xs={3}><LeftMenu/></Grid>
-        <Grid item xs={9}>
+      <Grid container spacing={1}>
+        <Grid item xs={2}><LeftMenu/></Grid>
+        <Grid item xs={10}>
           <Card>
             <CardHeader title="Profilul Meu" style={{ background: '#f1f1f1'}}/>
             <CardContent>
@@ -51,8 +51,8 @@ const MyProfile = ({ classes, currentUser: { cellNumber = '123-456-7890', office
             </CardContent>
             <hr />
             <CardActions>
-              <Button onClick={e => editProfile()}>Edit Profile</Button>
               <span style={{ flex: 1 }}></span>
+              <Button onClick={e => editProfile()}>Edit Profile</Button>
             </CardActions>
           </Card>
         </Grid>
