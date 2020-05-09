@@ -62,6 +62,7 @@ app.post('/voice/token', (req, res) => {
     sendTokenResponse(token, res);
 });
 
-app.listen(3001, () =>
+app.listen(3001, "http://185.146.87.121", () =>
+// app.listen("http://185.146.87.121:3001", () =>
     console.log('Express server is running on localhost:3001')
 );
