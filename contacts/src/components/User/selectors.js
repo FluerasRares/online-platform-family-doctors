@@ -6,8 +6,3 @@ export const selectCurrentUser = createSelector(
   selectUsers,
   ({ current }) => current
 );
-
-export const selectSelectedUser = createSelector(
-  selectUsers,
-  ({ selected }) => selected
-);

@@ -7,8 +7,10 @@ import { compose } from 'redux';
 import styles from './styles';
 import LeftMenu from '../LeftMenu';
 import Chat from '../Chat';
+import { selectAllMedics } from './selectors';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
-const Medics = ({ classes, history, medics =[{ id: 1, name: 'Ion Ionescu', specialitate: 'chirurg' }, { id: 2, name: 'Mihai Vasilescu', specialitate: 'ortoped' }] }) => {
+const Medics = ({ medics = [] }) => {
   return <Fragment>
     <Grid container spacing={1}>
       <Grid item xs={2}><LeftMenu /></Grid>
@@ -16,6 +18,16 @@ const Medics = ({ classes, history, medics =[{ id: 1, name: 'Ion Ionescu', speci
         <Card>
           <CardHeader title="Medici" style={{ background: '#f1f1f1' }} />
           <CardContent>
+            <BootstrapTable data={medics}
+              border={false}
+              height='120'
+              scrollTop={'Bottom'}
+              search>
+              <TableHeaderColumn dataField='id'
+                isKey={true}>ID</TableHeaderColumn>
+              <TableHeaderColumn dataField='name'>Nume / Prenume</TableHeaderColumn>
+            </BootstrapTable>
+
             <List component="nav">
               {medics
                 .map(({ id, name, specialitate }, index) =>
@@ -36,6 +48,7 @@ const Medics = ({ classes, history, medics =[{ id: 1, name: 'Ion Ionescu', speci
 }
 
 const mapStateToProps = state => ({
+  medics: selectAllMedics(state),
 });
 
 const mapDispatchToProps = {
