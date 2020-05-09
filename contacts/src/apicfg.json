@@ -8,10 +8,10 @@
     }
   },
   "medic": {
-    "baseURL": "...",
-    "authenticate": {
+    "baseURL": "http://teamit.services:8000",
+    "fetchAll": {
       "method": "GET",
-      "url": "/getAll",
+      "url": "/getmedics",
       "timeout": 5000
     }
   }
