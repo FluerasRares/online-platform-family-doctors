@@ -6,10 +6,7 @@ export default theme => ({
     padding: '5%',
   },
   signupBtn: {
-    background: theme.palette.signup.main,
+    color: 'white',
+    background: '#2196f3',
   },
-  signinLink: {
-    color: theme.palette.muted.main,
-    textDecoration: 'underline',
-  }
 });

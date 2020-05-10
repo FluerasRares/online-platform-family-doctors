@@ -6,19 +6,18 @@ import EditProfile from '../components/EditProfile';
 // import UserManagementList from "../components/Listing/UserManagementList";
 import Medics from "../components/Medics";
 import VideoChat from "../components/Video/VideoChat";
+import Splash from "./SplashPage";
 
 export const Routes = () => {
 
     return (
         <Fragment>
-            <Route exact path="/" component={SignUp}/>
-            {/* <Route exact path="/" component={MyProfile} /> */}
+          <Route exact path="/" component={Splash} />
+            <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/myprofile" component={MyProfile}/>
             <Route exact path="/editprofile" component={EditProfile}/>
             <Route exact path="/directory" component={Medics}/>
             <Route exact path="/test-video/:username" component={VideoChat}/>
-            {/* <Route exact path="/" component={Chat} /> */}
-            {/* <Route exact path="/chat" component={Chat} /> */}
         </Fragment>
     );
 }

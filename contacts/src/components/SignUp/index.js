@@ -11,9 +11,9 @@ import { selectSignupError } from '../Errors/selectors'
 import { clearError } from '../Errors/actions';
 
 const SignUp = ({ classes, signup, history, backendError, clearError }) => {
-  const [username, setUsername] = React.useState('test');
-  const [password, setPassword] = React.useState('test');
-  const [cip, setCip] = React.useState('2791488999');
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [cip, setCip] = React.useState('');
   const [usernameError, setUsernameError] = React.useState(false);
   const [usernameHelperText, setUsernameHelperText] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
@@ -47,8 +47,8 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
   return (
     <div>
       <Grid container spacing={2} style={{ marginTop: '4vh' }}>
-        <Grid item xs={1}></Grid>
-        <Grid item xs={10}>
+        <Grid item xs={3}></Grid>
+        <Grid item xs={6}>
           <Card>
             <CardHeader title="Inregistrare" style={{ background: '#f1f1f1'}}/>
             <CardContent>
@@ -64,9 +64,11 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
                     <TextField error={cipError} helperText={cipHelperText} fullWidth label="Cod de Identificare Personala in Registrul Medicilor" value={cip} className={classes.input} onChange={e => setCip(e.target.value)} />
                   </Grid>
                   <Grid item xs={12}>&nbsp;</Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={3}></Grid>
+                  <Grid item xs={6}>
                     <Button variant="contained" className={classes.signupBtn} fullWidth onClick={validateAndSignin}>Inregistrare</Button>
                   </Grid>
+                  <Grid item xs={3}></Grid>
                   {/* <Grid item xs={12}>
                     <br/>
                     <Typography variant="body2" display="block" className={classes.signinLink} onClick={e => history.push('/user')}>Am deja un cont</Typography>
@@ -76,7 +78,7 @@ const SignUp = ({ classes, signup, history, backendError, clearError }) => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={1}></Grid>
+        <Grid item xs={3}></Grid>
         <Grid item xs={12}></Grid>
       </Grid>
     </div>

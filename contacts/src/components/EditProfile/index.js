@@ -17,8 +17,7 @@ const EditProfile = ({ classes, currentUser = {}, history }) => {
   const [localitate, setLocalitate] = React.useState('');
   const [judet, setJudet] = React.useState(currentUser.judet);
   const saveProfile = () => {
-    alert('not yet...');
-    // history.push('editProfile');
+    history.push('/directory');
   }
   const back = () => {
     history.push('/myprofile');
