@@ -59,8 +59,6 @@ const EditProfile = ({ classes, currentUser = {}, history }) => {
                     <TextField fullWidth label="Telefon birou" value={officeNumber} className={classes.input} onChange={e => setOfficeNumber(e.target.value)} />
                   </Grid>
                 </Grid>
-
-
               </Grid>
             </CardContent>
             <hr />

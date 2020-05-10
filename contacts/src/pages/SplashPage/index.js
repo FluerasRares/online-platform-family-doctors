@@ -10,10 +10,11 @@ const SplashPage = ({ classes, history }) => {
 
   return <div className={classes.root}>
     <Grid container spacing={1}>
-      <Grid item xs={12} style={{ marginTop: '20vh', color: '#0d47a1', fontWeight: 700, textShadow: '0px 0px 2px #444' }}><Typography variant="h5">Family Doctors Portal</Typography></Grid>
+      <Grid item xs={12} style={{ marginTop: '10vh', color: '#0d47a1', fontWeight: 700, textShadow: '0px 0px 2px #777' }}><Typography variant="h5">Family Doctors Portal</Typography></Grid>
+      <Grid item xs={12} style={{ color: '#777' }}><Typography variant="overline">aici te poti conecta cu medicii din toata Romania</Typography></Grid>
       <Grid item xs={3}></Grid>
       <Grid item xs={6}>
-        <Card style={{ marginTop: '2vh' }}>
+        <Card style={{ marginTop: '4vh' }}>
           <CardMedia
             style={{ width: '100%', height: '40vh', border: '1px solid #ccc' }}
             image="/medical.jpg"
@@ -21,9 +22,10 @@ const SplashPage = ({ classes, history }) => {
         </Card>
       </Grid>
       <Grid item xs={3}></Grid>
+      <Grid item xs={12} style={{ color: '#777' }}><Typography variant="overline">find specialists &bull; instant messaging &bull; video chat &bull; document sharing</Typography></Grid>
       <Grid item xs={4}></Grid>
       <Grid item xs={4}>
-        <Button onClick={e => history.push('/signup')} fullWidth variant="contained" style={{ marginTop: '4vh', color: 'white', background: '#2196f3' }}>Register</Button>
+        <Button onClick={e => history.push('/signup')} fullWidth variant="contained" style={{ marginTop: '4vh', color: 'white', background: '#2196f3' }}>Inscrie-te si tu!</Button>
       </Grid>
       <Grid item xs={4}></Grid>
     </Grid>

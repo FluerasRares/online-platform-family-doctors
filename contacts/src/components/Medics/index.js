@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Card, CardContent, CardHeader, Grid, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@material-ui/core';
+import { Card, CardContent, CardHeader, Grid, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -21,8 +21,8 @@ function actionFormatter(cell, user, {openChat, history, currentUser}) {
       <IconButton edge="end" aria-label="video" onClick={e => history.push(`/test-video/${currentUser.prenume} ${currentUser.nume}`)}>
         <VideocamIcon/>
       </IconButton>
-      <IconButton edge="end" aria-label="chat">
-        <ChatIcon onClick={e => openChat(user)} />
+      <IconButton edge="end" aria-label="chat" onClick={e => openChat(user)} >
+        <ChatIcon/>
       </IconButton>
     </div>
   )
@@ -80,6 +80,7 @@ const Medics = ({ medics = [], history, currentUser = {} }) => {
       <DialogTitle id="alert-dialog-title">{`Start chat with ${chatWith}`}</DialogTitle>
       <DialogContent>
         <div id="chatlioWidgetPlaceholder" style={{ width: 450, height: 300 }}></div>
+        {/* <TextField variant="outlined" style={{ width: '100%' }}/> */}
       </DialogContent>
       <DialogActions>
         <Button onClick={closeChat} color="primary" autoFocus>

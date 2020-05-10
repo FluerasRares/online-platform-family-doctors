@@ -10,7 +10,7 @@ import theme from './theme';
 import store, {history} from './store';
 
 ReactDOM.render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <Provider store={store}>
             <MuiThemeProvider theme={theme}>
                 <ConnectedRouter history={history}>
@@ -18,7 +18,7 @@ ReactDOM.render(
                 </ConnectedRouter>
             </MuiThemeProvider>
         </Provider>,
-    </React.StrictMode>,
+    // </React.StrictMode>,
     document.getElementById('root')
 );
 
