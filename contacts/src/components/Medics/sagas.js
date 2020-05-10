@@ -23,7 +23,7 @@ function* fetchMedicsSaga({ payload }) {
 
 function* sendFileSaga({ payload }) {
   try {
-    const uploadResponse = yield call(api.upload, payload);
+    const uploadResponse = yield call(api.uploadFile, payload);
     if (uploadResponse.error) yield put(uploadResponse.error);
     else {
       // yield put(actions.uploadFileSuccess(uploadResponse));
