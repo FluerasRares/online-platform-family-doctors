@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Card, CardContent, CardHeader, Grid, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from '@material-ui/core';
+import { Card, CardContent, CardHeader, Grid, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, FormControl, InputLabel, OutlinedInput, InputAdornment, FormHelperText } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import styles from './styles';
 import LeftMenu from '../LeftMenu';
 import VideocamIcon from '@material-ui/icons/Videocam';
+import SendIcon from '@material-ui/icons/Send';
 import ChatIcon from '@material-ui/icons/Chat';
 import Chat from '../Chat';
 import { selectAllMedics } from './selectors';
@@ -31,6 +32,13 @@ function actionFormatter(cell, user, {openChat, history, currentUser}) {
 const Medics = ({ medics = [], history, currentUser = {} }) => {
   const [open, setOpen] = React.useState(false);
   const [chatWith, setChatWith] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [messageHelperText, setMessageHelperText] = React.useState('');
+
+  const sendMessage = () => {
+    setMessage('');
+    setMessageHelperText('message sent');
+  }
 
   const openChat = ({name}) => {
     setChatWith(name);
@@ -53,23 +61,27 @@ const Medics = ({ medics = [], history, currentUser = {} }) => {
               // height='120'
               scrollTop={'Bottom'}
               pagination
+              data-show-header="false"
+              data-search-align="left"
               search>
               <TableHeaderColumn dataField='id'
                 isKey={true}>ID</TableHeaderColumn>
-              <TableHeaderColumn dataField='cmi'>CMI</TableHeaderColumn>
+              {/* <TableHeaderColumn dataField='cmi'>CMI</TableHeaderColumn> */}
               <TableHeaderColumn dataField='name'>Nume / Prenume</TableHeaderColumn>
-              <TableHeaderColumn dataField='address'>Adresa</TableHeaderColumn>
+              {/* <TableHeaderColumn dataField='address'>Adresa</TableHeaderColumn> */}
               <TableHeaderColumn dataField='phone'>Telefon</TableHeaderColumn>
               <TableHeaderColumn dataField='email'>Email</TableHeaderColumn>
               <TableHeaderColumn dataField='department'>Departament</TableHeaderColumn>
               <TableHeaderColumn dataField='actions'
                 dataFormat={actionFormatter}
-                formatExtraData={{ openChat, history, currentUser }} >Actiuni</TableHeaderColumn>
+                formatExtraData={{ openChat, history, currentUser }} ></TableHeaderColumn>
             </BootstrapTable>
           </CardContent>
         </Card>
       </Grid>
     </Grid>
+
+    <Chat />
 
     <Dialog
       open={open}
@@ -79,8 +91,27 @@ const Medics = ({ medics = [], history, currentUser = {} }) => {
     >
       <DialogTitle id="alert-dialog-title">{`Start chat with ${chatWith}`}</DialogTitle>
       <DialogContent>
-        <div id="chatlioWidgetPlaceholder" style={{ width: 450, height: 300 }}></div>
-        {/* <TextField variant="outlined" style={{ width: '100%' }}/> */}
+        {/* <Chat/> */}
+        {/* <div id="chatlioWidgetPlaceholder" style={{ width: 450, height: 300 }}></div> */}
+        {/* <TextField variant="outlined" placeholder="mesajul tau" style={{ width: '100%' }}/> */}
+
+        <FormControl fullWidth variant="outlined">
+          <InputLabel>Mesaj</InputLabel>
+          <OutlinedInput
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton onClick={sendMessage} edge="end">
+                  <SendIcon />
+                </IconButton>
+              </InputAdornment>
+            }            
+            labelWidth={60}
+          />
+          <FormHelperText>{messageHelperText}</FormHelperText>
+        </FormControl>
+
       </DialogContent>
       <DialogActions>
         <Button onClick={closeChat} color="primary" autoFocus>

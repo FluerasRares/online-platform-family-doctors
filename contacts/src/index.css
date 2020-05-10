@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-#room, .video-form h2, .video-form label[for=room] {
+.table-header-wrapper, #room, .video-form h2, .video-form label[for=room] {
   display: none;
 }
