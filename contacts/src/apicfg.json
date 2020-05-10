@@ -8,7 +8,7 @@
     }
   },
   "medic": {
-    "baseURL": "http://teamit.services:8000",
+    "baseURL": "http://teamit.services:7000",
     "fetchAll": {
       "method": "GET",
       "url": "/getmedics",
