@@ -8,9 +8,10 @@ import { Card, CardHeader, CardContent, TextField, Button, Typography, CardMedia
 
 const SplashPage = ({ classes, history }) => {
 
-  return <div className={classes.root}>
+  return <div style={{ background: '#eee', height: '100vh' }}>
+    <img src='/logo.png' height="120" style={{ marginTop: '2vh' }} />
     <Grid container spacing={1}>
-      <Grid item xs={12} style={{ marginTop: '10vh', color: '#0d47a1', fontWeight: 700, textShadow: '0px 0px 2px #777' }}><Typography variant="h5">Family Doctors Portal</Typography></Grid>
+      <Grid item xs={12} style={{ marginTop: '1vh', color: '#0d47a1', fontWeight: 700, textShadow: '0px 0px 2px #777' }}><Typography variant="h5">Family Doctors Portal</Typography></Grid>
       <Grid item xs={12} style={{ color: '#777' }}><Typography variant="overline">aici te poti conecta cu medicii din toata Romania</Typography></Grid>
       <Grid item xs={3}></Grid>
       <Grid item xs={6}>
@@ -29,7 +30,7 @@ const SplashPage = ({ classes, history }) => {
       </Grid>
       <Grid item xs={4}></Grid>
     </Grid>
-    <img src='/amfb.png' height="120" style={{ marginTop: '4vh' }}></img>
+    {/* <img src='/amfb.png' height="120" style={{ marginTop: '4vh' }}/> */}
     <br />
   </div>;
 }

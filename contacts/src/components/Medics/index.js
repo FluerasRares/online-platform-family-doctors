@@ -9,13 +9,15 @@ import LeftMenu from '../LeftMenu';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import SendIcon from '@material-ui/icons/Send';
 import ChatIcon from '@material-ui/icons/Chat';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 import Chat from '../Chat';
 import { selectAllMedics } from './selectors';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import { selectCurrentUser } from '../User/selectors';
+import { sendFile } from './actions';
 
 // user = row
-function actionFormatter(cell, user, {openChat, history, currentUser}) {
+function actionFormatter(cell, user, { openChat, setAttachment, attachment, history, currentUser}) {
   // we should check if user is active or not (for the moment we presume all are active)
   return (
     <div>
@@ -25,15 +27,19 @@ function actionFormatter(cell, user, {openChat, history, currentUser}) {
       <IconButton edge="end" aria-label="chat" onClick={e => openChat(user)} >
         <ChatIcon/>
       </IconButton>
+      <IconButton edge="end" aria-label="file">
+        <input type="file" onChange={e => setAttachment(e.target.files[0])} style={{ fontSize: 8, width: 60 }} />
+      </IconButton>
     </div>
   )
 }
 
-const Medics = ({ medics = [], history, currentUser = {} }) => {
+const Medics = ({ medics = [{ id: 1, }], history, sendFile, currentUser = {} }) => {
   const [open, setOpen] = React.useState(false);
   const [chatWith, setChatWith] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [messageHelperText, setMessageHelperText] = React.useState('');
+  const [attachment, setAttachment] = React.useState();
 
   const sendMessage = () => {
     setMessage('');
@@ -48,6 +54,12 @@ const Medics = ({ medics = [], history, currentUser = {} }) => {
   const closeChat = () => {
     setOpen(false);
   };
+
+  React.useEffect(() => {
+    sendFile(attachment);
+    console.log(attachment);
+    // setAttachment(undefined);
+  }, [attachment, sendFile])
 
   return <Fragment>
     <Grid container spacing={1}>
@@ -74,7 +86,7 @@ const Medics = ({ medics = [], history, currentUser = {} }) => {
               <TableHeaderColumn dataField='department'>Departament</TableHeaderColumn>
               <TableHeaderColumn dataField='actions'
                 dataFormat={actionFormatter}
-                formatExtraData={{ openChat, history, currentUser }} ></TableHeaderColumn>
+                formatExtraData={{ openChat, setAttachment, attachment, history, currentUser }} ></TableHeaderColumn>
             </BootstrapTable>
           </CardContent>
         </Card>
@@ -127,7 +139,9 @@ const mapStateToProps = state => ({
   currentUser: selectCurrentUser(state),
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  sendFile,
+};
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),

@@ -14,5 +14,13 @@
       "url": "/getmedics",
       "timeout": 5000
     }
+  },
+  "files": {
+    "baseURL": "https://3jdpuq4t4e.execute-api.us-east-1.amazonaws.com/dev",
+    "upload": {
+      "method": "POST",
+      "url": "/files",
+      "timeout": 5000
+    }
   }
 }

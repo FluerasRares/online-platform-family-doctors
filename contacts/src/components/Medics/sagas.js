@@ -2,6 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 
 import { SIGNUP } from '../SignUp/commands';
+import { SEND_FILE } from './commands';
 
 // const commands = require('./commands');
 const actions = require('./actions');
@@ -20,6 +21,19 @@ function* fetchMedicsSaga({ payload }) {
   }
 }
 
+function* sendFileSaga({ payload }) {
+  try {
+    const uploadResponse = yield call(api.upload, payload);
+    if (uploadResponse.error) yield put(uploadResponse.error);
+    else {
+      // yield put(actions.uploadFileSuccess(uploadResponse));
+    }
+  } catch (err) {
+    // yield put(actions.uploadFileFail(err.message));
+  }
+}
+
 export default function* saga() {
   yield takeLatest(SIGNUP, fetchMedicsSaga);
+  yield takeLatest(SEND_FILE, sendFileSaga);
 }

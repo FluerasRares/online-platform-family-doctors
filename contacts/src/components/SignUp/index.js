@@ -11,9 +11,9 @@ import { selectSignupError } from '../Errors/selectors'
 import { clearError } from '../Errors/actions';
 
 const SignUp = ({ classes, signup, history, backendError, clearError }) => {
-  const [username, setUsername] = React.useState('q');
-  const [password, setPassword] = React.useState('q');
-  const [cip, setCip] = React.useState('2791488999');
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [cip, setCip] = React.useState('');
   const [usernameError, setUsernameError] = React.useState(false);
   const [usernameHelperText, setUsernameHelperText] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
