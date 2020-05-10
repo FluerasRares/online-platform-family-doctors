@@ -7,7 +7,7 @@ const VideoChat = (props) => {
     const username = props.match.params.username;
 
     const [setUsername] = useState('');
-    const [roomName, setRoomName] = useState('');
+    const [roomName, setRoomName] = useState('1on1');
     const [token, setToken] = useState(null);
 
     const handleUsernameChange = useCallback(event => {
